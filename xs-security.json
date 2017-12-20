@@ -1,0 +1,11 @@
+{
+	"xsappname": "LiveTwitterAnalysis",
+	"scopes": [{
+		"name": "$XSAPPNAME.USER",
+		"description": "Live Twitter Analysis User"
+	}],
+	"role-templates": [{
+		"name": "LiveTwitterAnaUser",
+		"scope-references": ["$XSAPPNAME.USER"]
+	}]
+}

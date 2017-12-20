@@ -7,3 +7,11 @@ modules:
  - name: uidev
    type: html5
    path: uidev
+   requires:
+    - name: LiveTwitterAnauaa
+    
+resources:
+ - name: LiveTwitterAnauaa
+   type: com.sap.xs.uaa
+   parameters:
+      path: ./xs-security.json
