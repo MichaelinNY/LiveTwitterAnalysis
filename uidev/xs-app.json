@@ -1,5 +1,10 @@
 {
 	"welcomeFile": "index.html",
 	"authenticationMethod": "route",
-	"routes": []
+	"routes": [{
+		"source": "^/node/(.*)$",
+		"authenticationType": "xsuaa",
+		"scope": "$XSAPPNAME.USER",
+		"destination": "node_be"
+	}]
 }
