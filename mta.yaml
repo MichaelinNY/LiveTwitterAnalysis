@@ -9,9 +9,39 @@ modules:
    path: uidev
    requires:
     - name: LiveTwitterAnauaa
+    - name: node_api
+      group: destinations
+      properties:
+       name: node_be
+       url: ~{url}
+       forwardAuthToken: true
     
+
+ - name: db
+   type: hdb
+   path: db
+   requires:
+    - name: hdi_db
+
+
+ - name: node
+   type: nodejs
+   path: node
+   requires:
+    - name: LiveTwitterAnauaa
+    - name: hdi_db
+   provides:
+    - name: node_api
+      properties:
+         url: ${default-url}
+
 resources:
  - name: LiveTwitterAnauaa
    type: com.sap.xs.uaa
    parameters:
       path: ./xs-security.json
+ - name: hdi_db
+   properties:
+      hdi-container-name: ${service-name}
+   type: com.sap.xs.hdi-container
+
