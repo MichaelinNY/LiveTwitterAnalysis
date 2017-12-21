@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="LiveTwitterAnalysis.db::neighborhood" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="neighborhood"/>
+<localVariables>
+  <variable id="IP_USER" parameter="true">
+    <descriptions defaultDescription="IP_USER"/>
+    <variableProperties datatype="VARCHAR" length="255" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_DIRECTION" parameter="true">
+    <descriptions defaultDescription="IP_DIRECTION"/>
+    <variableProperties datatype="VARCHAR" length="13" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_MIN" parameter="true">
+    <descriptions defaultDescription="IP_MIN"/>
+    <variableProperties datatype="INTEGER" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+  <variable id="IP_MAX" parameter="true">
+    <descriptions defaultDescription="IP_MAX"/>
+    <variableProperties datatype="INTEGER" mandatory="true">
+      <valueDomain type="empty"/>
+      <selection multiLine="false" type="Single"/>
+    </variableProperties>
+  </variable>
+</localVariables>
+<variableMappings/>
+<dataSources/>
+<calculationViews>
+  <calculationView xsi:type="Calculation:GraphView" id="Graph_1" workspace="LiveTwitterAnalysis.db::graphw" action="GET_NEIGHBORHOOD">
+    <viewAttributes>
+      <viewAttribute datatype="NVARCHAR" length="256" id="user"/>
+      <viewAttribute datatype="INTEGER" id="DEPTH"/>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <getNeighborhoodParameterization>
+      <startVerticesParameter>IP_USER</startVerticesParameter>
+      <directionParameter>IP_DIRECTION</directionParameter>
+      <minDepthParameter>IP_MIN</minDepthParameter>
+      <maxDepthParameter>IP_MAX</maxDepthParameter>
+      <vertexFilter></vertexFilter>
+      <edgeFilter></edgeFilter>
+    </getNeighborhoodParameterization>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Graph_1">
+  <attributes>
+    <attribute id="user" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="user"/>
+      <keyMapping columnObjectName="Graph_1" columnName="user"/>
+    </attribute>
+    <attribute id="DEPTH" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DEPTH"/>
+      <keyMapping columnObjectName="Graph_1" columnName="DEPTH"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Graph_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="100" y="268"/>
+      <rectangleSize height="30" width="140"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

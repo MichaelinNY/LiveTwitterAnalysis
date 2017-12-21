@@ -4,6 +4,8 @@ PROCEDURE "LiveTwitterAnalysis.db::reset" ( )
    --DEFAULT SCHEMA <default_schema_name>
    AS
 BEGIN
+	delete from "LiveTwitterAnalysis.db::graph.Users";
+	delete from "LiveTwitterAnalysis.db::graph.Relationships";
 	delete from "LiveTwitterAnalysis.db::PAL.Results";
 	delete from "LiveTwitterAnalysis.db::PAL.Centers";
 	delete from "LiveTwitterAnalysis.db::tables.Tweets";

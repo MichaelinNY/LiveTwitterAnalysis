@@ -1,0 +1,3 @@
+GRAPH WORKSPACE "LiveTwitterAnalysis.db::graphw"
+EDGE TABLE "LiveTwitterAnalysis.db::graph.Relationships" SOURCE COLUMN "source" TARGET COLUMN "target" KEY COLUMN "key"
+VERTEX TABLE "LiveTwitterAnalysis.db::graph.Users" KEY COLUMN "user"
