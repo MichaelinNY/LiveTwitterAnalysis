@@ -1,0 +1,17 @@
+PROCEDURE "LiveTwitterAnalysis.db::cluster" ( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   --DEFAULT SCHEMA <default_schema_name>
+   AS
+BEGIN
+   
+	delete from "LiveTwitterAnalysis.db::PAL.Results";
+	delete from "LiveTwitterAnalysis.db::PAL.Centers";
+	p1 = select * from "LiveTwitterAnalysis.db::views.Users";
+	p2 = select * from "LiveTwitterAnalysis.db::PAL.Params";
+	call "LiveTwitterAnalysis.db::PALkmeans" (:p1, :p2, :p3, :p4);                              
+	insert into "LiveTwitterAnalysis.db::PAL.Results" select * from :p3;
+	insert into "LiveTwitterAnalysis.db::PAL.Centers" select * from :p4;
+	insert into "LiveTwitterAnalysis.db::tables.Tracking" ("created","name") values (now(),'cluster');
+
+END
