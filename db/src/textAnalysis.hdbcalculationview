@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="LiveTwitterAnalysis.db::textAnalysis" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="textAnalysis"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="$TA_LiveTwitterAnalysis.db::TATweets">
+    <resourceUri>$TA_LiveTwitterAnalysis.db::TATweets</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:AggregationView" id="Aggregation_1">
+    <viewAttributes>
+      <viewAttribute id="TA_TOKEN">
+        <descriptions defaultDescription="TA_TOKEN"/>
+      </viewAttribute>
+      <viewAttribute id="TA_TYPE">
+        <descriptions defaultDescription="TA_TYPE"/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes>
+      <calculatedViewAttribute id="count" datatype="INTEGER" expressionLanguage="SQL">
+        <formula>1</formula>
+      </calculatedViewAttribute>
+    </calculatedViewAttributes>
+    <restrictedViewAttributes/>
+    <input node="$TA_LiveTwitterAnalysis.db::TATweets">
+      <mapping xsi:type="Calculation:AttributeMapping" target="TA_TOKEN" source="TA_TOKEN"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TA_TYPE" source="TA_TYPE"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Aggregation_1">
+  <attributes>
+    <attribute id="TA_TOKEN" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TA_TOKEN"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="TA_TOKEN"/>
+    </attribute>
+    <attribute id="TA_TYPE" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="TA_TYPE"/>
+      <keyMapping columnObjectName="Aggregation_1" columnName="TA_TYPE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="count" order="3" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="count"/>
+      <measureMapping columnObjectName="Aggregation_1" columnName="count"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="92" y="112"/>
+    
+      <rectangleSize width="140"/>
+    </shape>
+  
+    <shape expanded="true" modelObjectName="Aggregation_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="136" y="239"/>
+      <rectangleSize height="30" width="140"/>
+    </shape></shapes>
+</layout>
+</Calculation:scenario>

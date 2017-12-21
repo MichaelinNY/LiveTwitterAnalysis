@@ -1,0 +1,22 @@
+{ 
+  "area" : "AFLPAL", 
+  "function" : "KMEANS", 
+  "parameters" : [ 
+    { 
+      "type" : "LiveTwitterAnalysis.db::PAL.TTData", 
+      "direction" : "IN" 
+    }, 
+    { 
+      "type" : "LiveTwitterAnalysis.db::PAL.TTParams", 
+      "direction" : "IN" 
+    }, 
+    { 
+      "type" : "LiveTwitterAnalysis.db::PAL.TTResults", 
+      "direction" : "OUT" 
+    }, 
+    { 
+      "type" : "LiveTwitterAnalysis.db::PAL.TTCenters", 
+      "direction" : "OUT" 
+    } 
+  ]
+}

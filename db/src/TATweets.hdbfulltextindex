@@ -1,0 +1,6 @@
+FULLTEXT INDEX "LiveTwitterAnalysis.db::TATweets" ON "LiveTwitterAnalysis.db::tables.Tweets"("text") 
+	CONFIGURATION 'LiveTwitterAnalysis.db::voc'
+	LANGUAGE COLUMN "lang" 
+	LANGUAGE DETECTION ('EN','FR','DE','ES','ZH') 
+	TEXT ANALYSIS ON
+	;
