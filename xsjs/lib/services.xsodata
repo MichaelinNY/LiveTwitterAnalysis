@@ -1,0 +1,20 @@
+service namespace "LiveTwitterAnalysis.db" {
+    "LiveTwitterAnalysis.db::tables.Tweets" as "Tweets" 
+        create forbidden 
+        update forbidden 
+        delete forbidden;
+    "LiveTwitterAnalysis.db::tables.Tracking" as "Tracking" 
+        create forbidden 
+        update forbidden 
+        delete forbidden;
+    "LiveTwitterAnalysis.db::PAL.UsersClustered" as "UsersClustered" key ("user");
+    "LiveTwitterAnalysis.db::PAL.Clusters" as "Clusters" key ("clusterNumber") 
+        navigates ("Clusters2Users" as "Users");
+    association "Clusters2Users"
+        principal "Clusters"("clusterNumber") multiplicity "1" 
+        dependent "UsersClustered"("clusterNumber") multiplicity "*"
+        ;
+	"LiveTwitterAnalysis.db::textAnalysis" as "textAnalysis"
+    	key generate local "id"  
+    	aggregates always;
+}

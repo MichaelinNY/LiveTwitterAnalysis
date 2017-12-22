@@ -15,14 +15,18 @@ modules:
        name: node_be
        url: ~{url}
        forwardAuthToken: true
-    
+    - name: xsjs_api
+      group: destinations
+      properties:
+       name: xsjs_be
+       url: ~{url}
+       forwardAuthToken: true
 
  - name: db
    type: hdb
    path: db
    requires:
     - name: hdi_db
-
 
  - name: node
    type: nodejs
@@ -32,6 +36,18 @@ modules:
     - name: hdi_db
    provides:
     - name: node_api
+      properties:
+         url: ${default-url}
+
+
+ - name: xsjs
+   type: nodejs
+   path: xsjs
+   requires:
+    - name: LiveTwitterAnauaa
+    - name: hdi_db
+   provides:
+    - name: xsjs_api
       properties:
          url: ${default-url}
 
