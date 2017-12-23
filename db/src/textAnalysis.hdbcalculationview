@@ -32,12 +32,12 @@
 </calculationViews>
 <logicalModel id="Aggregation_1">
   <attributes>
-    <attribute id="TA_TOKEN" order="1" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TA_TOKEN"/>
+    <attribute id="token" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="token"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="TA_TOKEN"/>
     </attribute>
-    <attribute id="TA_TYPE" order="2" displayAttribute="false" attributeHierarchyActive="false">
-      <descriptions defaultDescription="TA_TYPE"/>
+    <attribute id="type" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="type"/>
       <keyMapping columnObjectName="Aggregation_1" columnName="TA_TYPE"/>
     </attribute>
   </attributes>

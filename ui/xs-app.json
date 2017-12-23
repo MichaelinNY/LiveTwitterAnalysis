@@ -6,7 +6,7 @@
 		"authenticationType": "xsuaa",
 		"scope": "$XSAPPNAME.USER",
 		"destination": "node_be"
-	},{
+	}, {
 		"source": "^(.*)(.xs(js|odata))(.*)$",
 		"authenticationType": "xsuaa",
 		"scope": "$XSAPPNAME.USER",

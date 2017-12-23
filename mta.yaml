@@ -4,23 +4,7 @@ description: Live Twitter Feed Analysis
 version: 0.0.1
 
 modules:
- - name: uidev
-   type: html5
-   path: uidev
-   requires:
-    - name: LiveTwitterAnauaa
-    - name: node_api
-      group: destinations
-      properties:
-       name: node_be
-       url: ~{url}
-       forwardAuthToken: true
-    - name: xsjs_api
-      group: destinations
-      properties:
-       name: xsjs_be
-       url: ~{url}
-       forwardAuthToken: true
+ 
 
  - name: db
    type: hdb
@@ -50,6 +34,28 @@ modules:
     - name: xsjs_api
       properties:
          url: ${default-url}
+
+
+ - name: ui
+   type: html5
+   path: ui
+   requires:
+    - name: LiveTwitterAnauaa
+    - name: node_api
+      group: destinations
+      properties:
+       name: node_be
+       url: ~{url}
+       forwardAuthToken: true
+    - name: xsjs_api
+      group: destinations
+      properties:
+       name: xsjs_be
+       url: ~{url}
+       forwardAuthToken: true
+
+
+ 
 
 resources:
  - name: LiveTwitterAnauaa

@@ -21,14 +21,17 @@ function cluster() {
 function neighborhood() {
 	var conn;
 	conn = $.hdb.getConnection();
+
 	var query =
 		'SELECT * FROM "LiveTwitterAnalysis.db::neighborhood" (placeholder."$$IP_USER$$"=>?,placeholder."$$IP_DIRECTION$$"=>?,placeholder."$$IP_MIN$$"=>?,placeholder."$$IP_MAX$$"=>?)';
-	var user = '["' + $.request.parameters.get("user") + '"]';
+
+	var user = '"' + $.request.parameters.get("user") + '"';
 	var direction = '"' + $.request.parameters.get("direction") + '"';
 	var min = $.request.parameters.get("min");
 	var max = $.request.parameters.get("max");
 	// validate input parameters here!!!
 	var argsArray = [query, user, direction, min, max];
+	// console.log(argsArray);
 	var result = conn.executeQuery.apply(conn, argsArray);
 	conn.close();
 	$.response.setBody(JSON.stringify(result));

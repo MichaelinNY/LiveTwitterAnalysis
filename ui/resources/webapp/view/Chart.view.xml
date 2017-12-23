@@ -1,0 +1,12 @@
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:custom="com.corp.model"
+	controllerName="com.corp.controller.Chart">
+	<App>
+		<Page title="{i18n&gt;chartTitle}">
+			<content>
+				<PullToRefresh id="pullToRefresh" visible="true" refresh="onRefresh"/>
+				<CheckBox text="Sentiment Only" id="isSentiment" selected="true" select="onSentimentSelect"/>
+				<custom:D3Chart id="D3Chart"/>
+			</content>
+		</Page>
+	</App>
+</mvc:View>
